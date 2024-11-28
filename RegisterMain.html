@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'bootstrap css.css' %}">
+    <script src="{%  static 'bootstrap js.js' %}"></script>
+    <style>
+         .navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+
+/* Navbar links */
+.navbar a {
+  float:left;
+  text-align: center;
+  padding: 16px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+
+}
+
+/* Navbar links on mouse-over */
+.navbar a:hover {
+  background-color: #000;
+}
+
+/* Current/active navbar link */
+.active {
+  background-color: #04AA6D;
+}
+
+/* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+   <!--sdfghj-->
+/* form reg */
+body{
+    background-color: rgb(255, 255, 255);
+    
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 35px;
+}
+table{
+    display: flex;
+    background: rgba(149, 155, 117, 0.336);
+    padding: 1rem 1rem;
+    border-radius: 6px;
+}
+table .textarea{
+    height: 50px;
+    margin-left: 200px;
+    width: 200px;
+    background: rgba(149, 155, 117, 0.315);
+    border-style: none;
+    outline: none;
+}
+h3{
+    text-align: center;
+}
+hr{
+    width: 550px;
+    background: orangered;
+    height:2px;
+    outline: none;
+    border-radius: 50px;
+
+}
+.text{
+    margin-left: 200px;
+    width: 200px;
+    height: 30px;
+    background: rgba(149, 155, 117, 0.315);
+    border-style: none;
+    outline: none;
+}
+.radio{
+    margin-left: 200px;
+   
+    justify-content:space-evenly;
+}
+.submit{
+    text-align: center;
+}
+.button{
+    margin-top: 28px;
+    width: 160px;
+    height: 35px;
+    background: orangered;
+    border: none;
+    border-radius: 60px;
+    font-weight: bold;
+}
+
+li a {
+            list-style: none;
+            text-decoration: none;
+            color: aliceblue;
+            font-family: serif;
+
+        }
+
+        ul {
+            list-style-type: circle;
+        }
+
+        #ftr{
+            font-size: 70px;
+            text-align: center;
+            background-image: url({% static 'gallery6.webp' %});
+            background-size: 100% 100%;
+            -webkit-text-fill-color: transparent;
+            /* -webkit-background-clip: text; */
+        }
+
+        ul a {
+            line-height: 2;
+        }
+        /* profile */
+        #rag:hover{
+          cursor: pointer;
+          box-shadow: 4px 4px 20px silver;
+          background-color: black;
+          color: orange;
+          border: 5px groove black;
+        }
+</style>
+</head>
+<body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <div class="navbar">
+  <img src="{% static 'cam icon.gif' %}" class="img-fluid" style="height: 60px; margin-left:10px;">
+  <a class="active" href="../"><i class="fa fa-fw fa-home"></i> Home</a>
+  <a href="../abouts"><i class="fa fa-fw fa-address-card"></i> About Us</a>
+  <a href="../gallerys"><i class="fa fa-fw fa-envira"></i> Gallery</a>
+  <a href="../register"><i class="fa fa-fw fa-registered"></i> Register</a>
+  <a href="../log"><i class="fa fa-fw fa-user"></i> Login</a>
+</div><br>
+        <!-- reg form -->
+    <form action="../registercode/" method="post">
+        {% csrf_token %}
+      <div class="container">
+          <table>
+              
+              <tr>
+                  <td>Name</td>
+                  <td><input class="text" type="text" name="name"></td>
+              </tr>
+              <tr>
+                  <td>Address</td>
+                  <td><input class="textarea" type="textarea" name="adds"></td>
+              </tr>
+              <tr>
+                  <td>Date of birth</td>
+                  <td><input class="text" type="date" name="dates"></td>
+              </tr>
+              <tr>
+                  <td>Gender</td>
+                  <td><input class="radio" type="radio" name="gnd" value="male"><label for male="male">Male</label>
+                      <input type="radio" name="gnd" value="female"><label for female="male">Female</label>
+                      <input type="radio" name="gnd" value="other"><label for other="other">Other</label>
+                  </td>
+              </tr>
+              <tr>
+                  <td>Qualification</td>
+                  <td><select class="text" name="select">
+                  <option value="10th">10th</option>
+                  <option value="Plustwo">12th</option>
+                  <option value="Degree">Degree</option>
+                  <option value="Diploma">Diploma</option>
+                  <option value="Other">Other</option> 
+                  </select>
+              </tr>
+              <tr>
+                  <td>Contact</td>
+                  <td><input class="text" type="text" name="contact"></td>
+              </tr>
+              <tr>
+                  <td>Email</td>
+                  <td><input class="text" type="text" name="email"></td>
+              </tr>
+              <tr><td class="submit" colspan="2">
+                  <button class="button">SUBMIT</button></td>
+              </tr>
+          </table>
+      </div>
+  </form><br>
+
+
+   <!-- footer-->
+        <div class="container-fluid bg-secondary p-4">
+          <div class="row">
+              <!-- <div class="col-sm-1"></div> -->
+              <div class="col-sm-3">
+                  <ul>
+                      <li style="color:#d1aa70; padding:10px;font-size:20px;"><a href="http://127.0.0.1:8000/">Home</a></li>
+                      <li style="color: #d1aa70; padding:10px;"><a href="../abouts">About Us</a></li>
+                      <li style="color: #d1aa70; padding:10px;"><a href="../gallerys">Gallery</a></li>
+                      <li style="color: #d1aa70; padding:10px;"><a href="../register">Register</a></li>
+                      <li style="color: #d1aa70; padding:10px;"><a href="../log">Login</a></li>
+                  </ul>
+                  <img src="facebook.png" alt="" height="40px">
+                  <img src="insta.png" alt="" height="40px">
+                  <img src="twitter.png" alt="" height="40px">
+                  <img src="call.png" alt="" height="40px">
+              </div>
+              <div class="col-sm-3">
+                  <h2 style="color:orange; font-size: 20px; font-family: cursive; margin-top: 10px; margin-left:15px">
+                      Dashboard</h2>
+                  <ul>
+                      <li style="color:#d1aa70"><a href="http://127.0.0.1:8000/exampanels/">Exam Dashboard</a></li>
+                      <li style="color: #d1aa70;"><a href="http://127.0.0.1:8000/examinstructs/">Test Paper Instruction Page</a></li>
+                      <li style="color: #d1aa70;"><a href="http://127.0.0.1:8000/changepass/">change Password</a></li>
+                  </ul>
+              </div>
+              <div class="col-sm-3">
+                  <h2 style="color:orange; font-size: 20px; font-family: cursive; margin-top: 10px; margin-left:15px">
+                      Important Link</h2>
+                  <ul>
+                      <li style="color:#d1aa70"><a href="https://www.w3schools.com/c/index.php">C Language</a></li>
+                      <li style="color: #d1aa70;"><a href="https://www.w3schools.com/cpp/default.asp">C++</a></li>
+                      <li style="color: #d1aa70;"><a href="https://www.w3schools.com/python/default.asp">Python</a></li>
+                      <li style="color: #d1aa70;"><a href="https://www.w3schools.com/java/default.asp">Java</a></li>
+                      <li style="color: #d1aa70;"><a href="https://www.w3schools.com/html/default.asp">HTML</a></li>
+                      <li style="color: #d1aa70;"><a href="https://www.w3schools.com/css/default.asp">CSS</a></li>
+                      <li style="color: #d1aa70;"><a href="https://www.w3schools.com/js/default.asp">JS</a></li>
+                      <li style="color: #d1aa70;"><a href="https://www.w3schools.com/bootstrap/bootstrap_ver.asp">Bootstrap</a></li>
+
+                  </ul>
+              </div>
+              <div class="col-sm-3">
+                  <h2 style="color:orange; font-size: 20px; font-family: cursive; margin-top: 10px; margin-left:15px">
+                      Know Some Things</h2>
+                  <ul>
+                      <li style="color:#d1aa70"><a href="http://127.0.0.1:8000/frame/">Framework</a></li>
+                      <li style="color:#d1aa70"><a href="http://127.0.0.1:8000/comp/">Top IT Company</a></li>
+                      <li style="color: #d1aa70;"><a href="http://127.0.0.1:8000/first/">Improve Perfomance</a></li>
+                    <li style="color: #d1aa70;"><a href="http://127.0.0.1:8000/lang/"> Some Different Popular Language</a></li>
+                  </ul>
+              </div>
+          </div>
+</body>
+</html>
