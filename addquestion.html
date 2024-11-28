@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+  <link rel="stylesheet" href="{% static 'bootstrap css.css' %}">
+  <script src="{% static 'bootstrap.js.js' %}"></script>
+<style>
+    .navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+
+.main {
+  padding: 16px;
+  margin-top: 30px;
+  height: 1500px; /* Used in this example to enable scrolling */
+}
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add an active class to highlight the current page */
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+</style>
+<script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "230px";
+    }
+    
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+    </script>
+</head>
+<body style="background-color:gray;">
+    <div class="navbar text-center">
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="../adminlogin/">Login</a>
+  <a href="../adminall">Dashboard</a>
+  <a href="../addsubject">Subject</a>
+  <a href="../adminadd">Add Question</a>
+  <a href="../examregister/">Students List</a>
+  <a href="../examresults/">Result Print</a>
+  <a href="../adminlogout/">Admin Logout</a>
+</div>
+<span style="font-size:30px;cursor:pointer; color:orange;" onclick="openNav()">&#9776; * Online Exam</span>
+<div class="topnav" id="myTopnav">
+  </div>
+  </div><br><br><br><br><br><br>
+       <div class="container">
+        <div class="row">
+          <div class="col-sm-3"></div>
+          <div class="col-sm-6">
+            <form action="../addques/" method="post">
+                {% csrf_token %}
+              <h1 style="text-align: center;">Add Question</h1>
+                <div class="container text-drak bg-body-secondry">
+                    Coures : <select name="subid">
+                    {% for a in results %}
+                    <option value="{{ a.id}}">{{ a.sub }}</option>
+                    {% endfor %}
+                    </select><br><br>
+                  <lable for="lname" class="form-lable">Question Name</lable><br>
+                  <input type="text" class="form-control text-info" name="question"><br>
+                  <lable for="option" class="form-lable">Option 1</lable>
+                  <input type="text"  class="form-control text-info" name="option1"><br>
+                   <lable for="option" class="form-lable">Option 2</lable>
+                  <input type="text"  class="form-control text-info" name="option2"><br>
+                   <lable for="option" class="form-lable">Option 3</lable>
+                  <input type="text"  class="form-control text-info" name="option3"><br>
+                   <lable for="option" class="form-lable">Option 4</lable>
+                  <input type="text"  class="form-control text-info" name="option4"><br>
+                  <lable for="text" class="form-lable">Correct Answer</lable>
+                  <input type="text"  class="form-control text-info" name="answer"><br>
+                  <lable for="des" class="form-lable">Description</lable>
+                  <input type="text"  class="form-control text-info" name="description"><br>
+                <button class="btn btn-outline-info bg-success">Submit Question</button>
+                </div>
+          </form><br>
+          </div>
+          <div class="col-sm-3">
+
+          </div>
+        </div>
+       </div>  
+</body>
+</html> 
