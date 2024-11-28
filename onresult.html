@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'bootstrap css.css' %}">
+  <script src="{% static 'bootstrap.js.js' %}"></script>
+<style>
+    li{
+        font-size: 17px;
+    }
+    .navbar {
+  overflow: hidden;
+  background-color:black;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color:white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+
+.main {
+  padding: 16px;
+  margin-top: 30px;
+  height: 1500px; /* Used in this example to enable scrolling */
+}
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color:black;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color:white;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  color: white;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.topnav {
+  background-color:black;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add an active class to highlight the current page */
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+</style>
+<script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "230px";
+    }
+    
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+    </script>
+</head>
+<body style="background-color:gray;">
+  <div class="navbar text-center">
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="http://127.0.0.1:8000/exampanels/" style="font-size: 20px; text-align: center;color:orange;">Exam Dashboard</a>
+  <a href="http://127.0.0.1:8000/examinstructs/" style="font-size: 20px;color:orange;">Test Paper Instruction page</a>
+  <a href="http://127.0.0.1:8000/examchooses/" style="font-size: 20px;text-align: center;color:orange;">Choose Test Paper</a>
+  <a href="#" style="font-size: 20px;text-align: center;color:orange;">Text Paper</a>
+  <a href="http://127.0.0.1:8000/examresults/" style="font-size: 20px; text-align: center;color:orange;">Result</a>
+  <a href="#" style="font-size: 20px; color:orange;">My Previous Tests Result</a>
+  <a href="http://127.0.0.1:8000/changepass/" style="font-size: 20px; text-align:center; color:orange;">Change password</a>
+  <a href="http://127.0.0.1:8000/log/" style="font-size: 20px; text-align:center; color: orange;">Logout</a>
+
+</div>
+<span style="font-size:30px;cursor:pointer;color:orange;" onclick="openNav()">&#9776;*Online Exam</span>
+<div class="topnav" id="myTopnav">
+  <a href="D:\online examination project\1examportal.html" class="active">Home</a>
+  <!-- <a href="D:\online examination project\aboutUSmain.html">About us</a> -->
+  <!-- <a href="D:\online examination project\fontgallery.html">Gallery</a> -->
+  <!-- <a href="D:\online examination project\frontlogin.html">Login</a> -->
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="D:\online examination project\stulogin.html" style="float: right;padding:0px 20px 0px px 10px;">Logout</a>
+  </div>
+  </div><br><br><br><br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Correct Answer</th>
+        <th scope="col" >Incorrect Answer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>correct Answer: {{ correct_count }}</td>
+        <td style="color:red;b">incorrect Answer: {{ incorrect_count }}</td>
+      </tr>
+      <tbody>
+  </table>
+
+</body>
+</html> 
